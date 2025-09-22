@@ -6,35 +6,45 @@
     <meta name="description" content="An in-depth guide to HTML meta tags.">
     <meta name="author" content="Malcolm Potera">
     <link rel="stylesheet" href="meta.css">
+    <script defer src="meta-css.js"></script>
                   
     <title>Document</title>
 </head>
 <body>
-
     <div id="content">
         <h1>HTML, CSS, and JS</h1>
         <p>The foundational technologies that power websites and web applications</p>
         <hr>
         <img src="https://wddbyui.github.io/wdd131/images/trifecta.png" alt="JS, CSS, and HTML logos">
         <div id="topics">
-            <h2>HyperText Markup Language</h2>
+            <h2 id="html">HyperText Markup Language</h2>
             <ul class="list">
                 <li>Defines the structure and content of a web page.</li>
                 <li>Without HTML there's nothing for the browser to display.</li>
             </ul>
-            <h2>Cascading Style Sheets</h2>
+            <h2 id="css">Cascading Style Sheets</h2>
             <ul class="list">
                 <li>Controls how the HTML elements look.</li>
                 <li>Without CSS pages look plain and unstyled.</li>
             </ul>
-            <h2>JavaScript</h2>
+            <h2 id="js">JavaScript</h2>
             <ul class="list">
                 <li>Adds interactivity and dynamic behavior.</li>
                 <li>Without JavaScript nothing on the page responds dynamically to user actions.</li>
             </ul>
         </div>
+        
+        <label for="webdevlist">Choose One:</label>
+        <select name="code" id="webdevlist">
+        <option>Choose One:</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="js">JavaScript</option>
+        </select>                   
+            
     </div>
 
     
 </body>
 </html>
+<script src="meta-css.js"></script>
