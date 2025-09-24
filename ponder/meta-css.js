@@ -34,7 +34,9 @@ console.log(course); //works fine, course is global
 let selectElem = document.getElementById('webdevlist');
 
 selectElem.addEventListener('change', function(){
-
+    document.querySelector('html').style.color ='black';
+    document.querySelector('#css').style.color ='black';
+    document.querySelector('#js').style.color ='black';
     let codeValue = selectElem.value;
     console.log(codeValue);
     document.getElementById(codeValue).style.color='red';
@@ -47,6 +49,12 @@ const topics = document.querySelector('#topics');
 
 topics.appendChild(newPara);
 
+const image = document.querySelector('img');
+image.setAttribute('src', 'images/logos.jpg');
+image.setAttribute('alt', 'new logo with black background');
 
+//document.body.className = 'blue';
+
+document.bidy.style.backgroundColor = 'lightblue';
 
 
