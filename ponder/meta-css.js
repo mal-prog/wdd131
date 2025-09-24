@@ -47,6 +47,6 @@ const topics = document.querySelector('#topics');
 
 topics.appendChild(newPara);
 
-topics.innerHTML = '<p> This is it</p>';
+
 
 
