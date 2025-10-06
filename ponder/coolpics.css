@@ -1,0 +1,38 @@
+img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+body{
+    font-family: Roboto, sans-serif;
+    margin: 0;
+}
+header,
+main,
+footer{
+    max-width: 1300px;
+    margin: lrem auto;
+    border: 1px solid #ccc;
+    padding: lrem;
+    background-color: lightblue;
+    text-align: center;
+}
+@media screen and (min-width: 1000px) {
+    main{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width: 1000px) {
+    nav{
+        text-align: right;
+    }
+    nav a {
+        display: block;
+    }
+
+}
+.menu-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
