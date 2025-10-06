@@ -2,6 +2,8 @@ img {
   width: 300px;
   height: 300px;
   object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 5px 5px 15px rgb(0,0,0,0,7);
 }
 body{
     font-family: Roboto, sans-serif;
@@ -11,18 +13,30 @@ header,
 main,
 footer{
     max-width: 1300px;
-    margin: lrem auto;
+    margin-top: 25px;
     border: 1px solid #ccc;
     padding: lrem;
     background-color: lightblue;
     text-align: center;
+    font-size: medium;
 }
-@media screen and (min-width: 1000px) {
-    main{
-        grid-template-columns: 1fr 1fr;
+
+ #img_container{
+  display: grid;
+  grid-template-columns: (1, 300px);
+  justify-content: center;
+  gap: 45px 100px;
+}
+
+@media screen and (min-width: 700px) {
+    #img_container{
+        grid-template-columns: repeat(2 300px);
     }
 }
 @media screen and (min-width: 1000px) {
+    #img_container{
+        grid-template-columns: repeat(3 300px);
+    }
     nav{
         text-align: right;
     }
@@ -35,4 +49,6 @@ footer{
     cursor: pointer;
     border: none;
     background-color: transparent;
+    color: white;
+    font-size: larger;
 }
