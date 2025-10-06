@@ -29,6 +29,13 @@ section {
 nav a {
     padding: 20px;
     color: black;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-top: 1px solid gray;
+    /* display: none; */
+}
+.hide{
     display: none;
 }
 nav a:hover {
@@ -45,26 +52,41 @@ nav a:hover {
     height: 4px;
     background-color: black;
     margin: 5px 0;
+    transition: .4s;
 }
+
+.change .bar1 {
+    transform: translate(0, 7.5px) rotate(-45deg);
+  }
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+            
 footer {
     text-align: center;
 }
           
-
 @media screen and (min-width: 700px) {
     nav{
         text-align: right;
-    }
-    nav a {
         display: block;
     }
+    nav a {
+        display: inline;
+        border: none;
+        text-align: right;
+    }
 
-}
-.menu-btn {
-    display:none;
-}     
-main{
-    grid-template-columns: 1fr 1fr;
+    .menu-btn {
+        display:none;
+    }     
+    main{
+        grid-template-columns: 1fr 1fr;
+    }
+    .hide{
+        display: none;}
 }
 @media screen and (min-width: 1000px) {
     main{
