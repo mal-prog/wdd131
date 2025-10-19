@@ -1,0 +1,119 @@
+/* ==============================
+   Kids Read For Fun – Visual Match
+   ============================== */
+
+:root{
+    --tan: #E7B679;     /* rules + divider */
+    --title: #3b2b33;   /* site title */
+    --accent: #b81d36;  /* headings + links */
+    --text: #111;       /* body text */
+    --muted: #666;      /* meta text */
+    --star: #F4C542;    /* rating stars */
+    --bg: #fff;
+  }
+  
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Georgia","Times New Roman",serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  
+  /* top thin rule across full page */
+  .site-topline { border-top: 4px solid var(--tan); }
+  
+  /* header: centered title + right nav */
+  .header {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 12px 24px 6px;
+  }
+  .header__title {
+    justify-self: center;
+    grid-column: 1 / 3; /* center title across row */
+    margin: 10px 0 8px;
+    font-weight: 800;
+    color: var(--title);
+    font-size: clamp(28px, 3.4vw, 40px);
+    letter-spacing: .3px;
+  }
+  .header__nav { grid-column: 2 / 3; justify-self: end; padding-bottom: 8px; }
+  .main-nav { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+  .main-nav a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .main-nav a:hover { text-decoration: underline; }
+  
+  /* second thin rule under header */
+  .header-rule { border-top: 2px solid var(--tan); }
+  
+  /* post layout */
+  .post {
+    max-width: 1100px;
+    margin: 28px auto 72px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 260px 1fr; /* rail + content */
+    gap: 48px;
+  }
+  
+  /* left info rail with vertical divider */
+  .post__rail {
+    position: relative;
+    padding-right: 28px;
+    text-align: right;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .post__rail::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 0;
+    width: 2px;
+    height: 96%;
+    background: var(--tan);
+  }
+  .post__date { display: block; font-style: italic; margin-bottom: 16px; }
+  .post__rail p { margin: 8px 0; }
+  
+  /* stars */
+  .stars { color: var(--star); letter-spacing: 2px; font-size: 18px; }
+  
+  /* main content */
+  .post__content h2 {
+    color: var(--accent);
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 0 0 14px;
+  }
+  .post__content img {
+    width: 300px; /* close to screenshot scale */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 8px auto 12px 0; /* left-aligned image */
+    border-radius: 2px;
+  }
+  .post__content p { margin: 10px 0; max-width: 620px; }
+  
+  /* subtle rounded page corners like screenshot */
+  .page { border-radius: 14px; overflow: hidden; }
+  
+  /* responsiveness */
+  @media (max-width: 900px){
+    .post { grid-template-columns: 220px 1fr; gap: 32px; }
+    .post__content img { width: 260px; }
+  }
+  @media (max-width: 680px){
+    .header { grid-template-columns: 1fr; text-align: center; }
+    .header__title { grid-column: 1; }
+    .header__nav { justify-self: center; margin-top: 6px; }
+    .post { grid-template-columns: 1fr; gap: 18px; }
+    .post__rail { text-align: left; padding-right: 0; }
+    .post__rail::after { display: none; } /* hide divider on small screens */
+  }
+  
