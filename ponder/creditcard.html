@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💳 Credit Card Form</title>
+
+  <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50%25' x='50%25' dominant-baseline='middle' text-anchor='middle' font-size='48'%3E%F0%9F%92%B3%3C/text%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Prove – Credit Card Form</h1>
+
+    <form id="paymentForm" class="form-grid" novalidate>
+      <!-- FRONT OF CARD -->
+      <section class="card card-front" aria-labelledby="frontTitle">
+        <h2 id="frontTitle" class="visually-hidden">Card Front</h2>
+
+        <div class="network" aria-hidden="true">VISA</div>
+        <div class="total">$ TOTAL: <strong>199</strong></div>
+        <div class="chip" aria-hidden="true"></div>
+
+        <label for="cardNumber" class="lbl lbl-number">CARD NUMBER</label>
+        <input id="cardNumber" name="cardNumber" class="inp inp-number"
+               inputmode="numeric" autocomplete="cc-number"
+               placeholder="1234 5678 9101 0202" maxlength="19" />
+
+        <label for="cardHolder" class="lbl lbl-name">CARD HOLDER</label>
+        <input id="cardHolder" name="cardHolder" class="inp inp-name"
+               autocomplete="cc-name" placeholder="John Doe" />
+
+        <div id="cardExpiration" class="exp-wrap">
+          <label id="expirationDate" for="expMonth" class="lbl">EXPIRATION</label>
+          <input type="text" id="expMonth" name="expMonth" class="inp inp-mm"
+                 placeholder="MM" inputmode="numeric" aria-labelledby="expirationDate" maxlength="2">
+          <input type="text" id="expYear"  name="expYear"  class="inp inp-yy"
+                 placeholder="YY" inputmode="numeric" aria-labelledby="expirationDate" maxlength="2">
+        </div>
+      </section>
+
+      <!-- BACK OF CARD -->
+      <section class="card card-back" aria-labelledby="backTitle">
+        <h2 id="backTitle" class="visually-hidden">Card Back</h2>
+        <div class="magstripe" aria-hidden="true"></div>
+
+        <label for="cvv" class="lbl lbl-cvv">CVC/CVV</label>
+        <input id="cvv" name="cvv" class="inp inp-cvv"
+               placeholder="xxx" inputmode="numeric" maxlength="4" autocomplete="cc-csc">
+      </section>
+
+      <button type="submit" class="submit">Submit</button>
+
+      <!-- ✅ REQUIRED SO MESSAGE SHOWS -->
+      <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="hint">Validator accepts only <code>1234123412341234</code> and requires an unexpired date.</p>
+  </main>
+
+  <!-- ✅ make sure this line is here -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
