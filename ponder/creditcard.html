@@ -3,65 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>💳 Credit Card Form</title>
+  <title>Credit Card Form</title>
 
+  <!-- emoji favicon -->
   <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50%25' x='50%25' dominant-baseline='middle' text-anchor='middle' font-size='48'%3E%F0%9F%92%B3%3C/text%3E%3C/svg%3E">
 
+  <!-- ✅ CSS LINKED -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- ✅ JS LINKED -->
+  <script defer src="script.js"></script>
 </head>
 <body>
   <main class="page">
     <h1>Prove – Credit Card Form</h1>
+    <p class="hint">Grid layout • ARIA expiration • Validation • Thank you message</p>
 
-    <form id="paymentForm" class="form-grid" novalidate>
+    <form id="cardForm" novalidate class="card-form" aria-describedby="formErrors">
+
       <!-- FRONT OF CARD -->
-      <section class="card card-front" aria-labelledby="frontTitle">
-        <h2 id="frontTitle" class="visually-hidden">Card Front</h2>
+      <section class="card card-front">
+        <div class="total">TOTAL: $199</div>
+        <div class="chip">💳</div>
 
-        <div class="network" aria-hidden="true">VISA</div>
-        <div class="total">$ TOTAL: <strong>199</strong></div>
-        <div class="chip" aria-hidden="true"></div>
+        <label for="number" class="lbl lbl-number">CARD NUMBER</label>
+        <input id="number" name="number" placeholder="1234 5678 9101 1020" class="in in-number" maxlength="19">
 
-        <label for="cardNumber" class="lbl lbl-number">CARD NUMBER</label>
-        <input id="cardNumber" name="cardNumber" class="inp inp-number"
-               inputmode="numeric" autocomplete="cc-number"
-               placeholder="1234 5678 9101 0202" maxlength="19" />
+        <label for="holder" class="lbl lbl-holder">CARD HOLDER</label>
+        <input id="holder" name="holder" placeholder="John Doe" class="in in-holder">
 
-        <label for="cardHolder" class="lbl lbl-name">CARD HOLDER</label>
-        <input id="cardHolder" name="cardHolder" class="inp inp-name"
-               autocomplete="cc-name" placeholder="John Doe" />
-
-        <div id="cardExpiration" class="exp-wrap">
-          <label id="expirationDate" for="expMonth" class="lbl">EXPIRATION</label>
-          <input type="text" id="expMonth" name="expMonth" class="inp inp-mm"
-                 placeholder="MM" inputmode="numeric" aria-labelledby="expirationDate" maxlength="2">
-          <input type="text" id="expYear"  name="expYear"  class="inp inp-yy"
-                 placeholder="YY" inputmode="numeric" aria-labelledby="expirationDate" maxlength="2">
+        <div id="cardExpiration" class="exp-group">
+          <label id="expirationDate" class="lbl lbl-exp">EXPIRATION</label>
+          <input type="text" id="month" name="expMonth" placeholder="MM" maxlength="2" aria-labelledby="expirationDate" class="in in-mm">
+          <input type="text" id="year" name="expYear" placeholder="YY" maxlength="2" aria-labelledby="expirationDate" class="in in-yy">
         </div>
       </section>
 
       <!-- BACK OF CARD -->
-      <section class="card card-back" aria-labelledby="backTitle">
-        <h2 id="backTitle" class="visually-hidden">Card Back</h2>
-        <div class="magstripe" aria-hidden="true"></div>
-
-        <label for="cvv" class="lbl lbl-cvv">CVC/CVV</label>
-        <input id="cvv" name="cvv" class="inp inp-cvv"
-               placeholder="xxx" inputmode="numeric" maxlength="4" autocomplete="cc-csc">
+      <section class="card card-back">
+        <div class="magstripe"></div>
+        <div class="cvv-block">
+          <label for="cvv" class="lbl lbl-cvv">CVC/CVV</label>
+          <input id="cvv" name="cvv" placeholder="xxx" maxlength="3" class="in in-cvv">
+        </div>
       </section>
 
-      <button type="submit" class="submit">Submit</button>
-
-      <!-- ✅ REQUIRED SO MESSAGE SHOWS -->
-      <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+      <div id="formErrors" class="errors"></div>
+      <button class="submit" type="submit">Submit</button>
     </form>
 
-    <p class="hint">Validator accepts only <code>1234123412341234</code> and requires an unexpired date.</p>
+    <section id="thanks" class="thankyou" hidden>
+      <h2>Thank you!</h2>
+      <p>Your payment information was accepted for this assignment.</p>
+    </section>
   </main>
-
-  <!-- ✅ make sure this line is here -->
-  <script src="script.js"></script>
 </body>
 </html>
 

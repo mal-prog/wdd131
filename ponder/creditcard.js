@@ -1,76 +1,66 @@
-window.addEventListener("DOMContentLoaded", () => {
+const $ = (q) => document.querySelector(q);
 
-  const digits = (s) => (s || "").replace(/\D/g, "");
+function normalizeNumber(v) {
+  return v.replace(/[^\d]/g, "");
+}
 
-  const form = document.querySelector("#paymentForm");
-  const msg  = document.querySelector("#formMsg");
-  const numberInput = document.querySelector("#cardNumber");
-  const holderInput = document.querySelector("#cardHolder");
-  const mmEl = document.querySelector("#expMonth");
-  const yyEl = document.querySelector("#expYear");
-  const cvvEl = document.querySelector("#cvv");
+function notExpired(mm, yy) {
+  const m = parseInt(mm, 10);
+  const y = parseInt(yy, 10);
+  if (Number.isNaN(m) || Number.isNaN(y) || m < 1 || m > 12) return false;
 
-  // Format card number while typing
-  numberInput.addEventListener("input", () => {
-    const raw = digits(numberInput.value).slice(0, 16);
-    const grouped = raw.replace(/(\d{4})(?=\d)/g, "$1 ");
-    numberInput.value = grouped;
+  const fullY = y < 100 ? 2000 + y : y;
+  const now = new Date();
+  const curM = now.getMonth() + 1;
+  const curY = now.getFullYear();
+
+  return fullY > curY || (fullY === curY && m >= curM);
+}
+
+function showErrors(list) {
+  const box = $("#formErrors");
+  box.innerHTML = list.length ? list.map(msg => `• ${msg}`).join("<br>") : "";
+}
+
+function formatNumberLive(input) {
+  input.addEventListener("input", () => {
+    const digits = normalizeNumber(input.value).slice(0, 16);
+    const parts = digits.match(/.{1,4}/g) || [];
+    input.value = parts.join(" ");
   });
+}
 
-  // Only digits in MM/YY/CVV
-  [mmEl, yyEl, cvvEl].forEach(inp => {
-    inp.addEventListener("input", () => {
-      inp.value = digits(inp.value);
-    });
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const form = $("#cardForm");
+  const thanks = $("#thanks");
+  formatNumberLive($("#number"));
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    msg.className = "form-msg";
-    msg.textContent = "";
 
-    const EXACT = "1234123412341234";
+    const errors = [];
+    const number = normalizeNumber($("#number").value);
+    const holder = $("#holder").value.trim();
+    const mm = $("#month").value.trim();
+    const yy = $("#year").value.trim();
+    const cvv = $("#cvv").value.trim();
 
-    const num = digits(numberInput.value);
-    const name = holderInput.value.trim();
-    const mm = digits(mmEl.value);
-    const yy = digits(yyEl.value);
-    const cvv = digits(cvvEl.value);
+    if (number !== "1234123412341234") {
+      errors.push("Card number must be exactly 1234 1234 1234 1234.");
+    }
+    if (!holder) errors.push("Card holder name is required.");
+    if (!notExpired(mm, yy)) errors.push("Card is expired or invalid.");
+    if (!/^\d{3}$/.test(cvv)) errors.push("CVV must be 3 digits.");
 
-    let errors = [];
-
-    if (num !== EXACT) errors.push("Card number must be exactly 1234123412341234.");
-    if (!name) errors.push("Card holder name is required.");
-
-    const m = Number(mm);
-    if (!(m >= 1 && m <= 12)) errors.push("Expiration month must be 01–12.");
-
-    if (yy.length !== 2) errors.push("Expiration year must be two digits (YY).");
+    showErrors(errors);
 
     if (errors.length === 0) {
-      const fullYear = 2000 + Number(yy);
-      const expEnd = new Date(fullYear, m, 0, 23, 59, 59);
-      if (isNaN(expEnd.getTime()) || expEnd < new Date()) {
-        errors.push("Card is expired.");
-      }
+      form.hidden = true;
+      thanks.hidden = false;
     }
-
-    if (!(cvv.length === 3 || cvv.length === 4)) errors.push("CVV must be 3 or 4 digits.");
-
-    if (errors.length) {
-      msg.textContent = "❌ " + errors[0];
-      msg.classList.add("err");
-      return;
-    }
-
-    // ✅ SUCCESS MESSAGE
-    msg.textContent = "✅ Payment approved. Thank you!";
-    msg.classList.add("ok");
-
-    // Optional - reset form
-    // form.reset();
   });
 });
+
 
 
 
