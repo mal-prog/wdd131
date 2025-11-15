@@ -31,20 +31,22 @@
         display:flex;
         gap:1em;
         flex-wrap:wrap;
+        justify-content: center;
     }
 
     .gallery > *{
         flex:1 1 460px;
-    }
+    } 
 
     hr{
     margin-top: 50px;
     }
          
+
     @media screen and (min-width: 550px){
         .main-nav{
             flex-direction: row;
-            justify-content: end;
+            justify-content: flex-end;
         }
         .media-card{
             flex-direction:row;
