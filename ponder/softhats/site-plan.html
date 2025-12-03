@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soft Hats for Patients | Site Plan</title>
+  <link rel="stylesheet" href="styles/site-plan.css" />
+</head>
+<body>
+  <header>
+    <h1>Soft Hats for Patients – Site Plan</h1>
+    <p class="subtitle">WDD 131 – Personal Web Application</p>
+  </header>
+
+  <main>
+    <!-- Purpose & Audience -->
+    <section id="purpose-audience">
+      <h2>Purpose & Audience</h2>
+      <h3>Purpose</h3>
+      <p>
+        The purpose of the <strong>Soft Hats for Patients</strong> website is to
+        share our nonprofit project that creates comfortable, customized hats
+        for patients going through medical treatments. The site will make it
+        easy for visitors to learn about the mission, view hat styles, and see
+        how they can donate or get involved. It will also act as a simple
+        “hub” for managing requests and showcasing impact stories.
+      </p>
+
+      <h3>Audience</h3>
+      <p>
+        The primary audience includes family members, friends, and caregivers of
+        patients who want to bring comfort and encouragement through small,
+        thoughtful gifts. A secondary audience includes hospital staff,
+        volunteers, and donors looking for meaningful service opportunities.
+        Visitors will likely be emotionally invested, time-conscious, and using
+        the site on phones, tablets, and laptops.
+      </p>
+    </section>
+
+    <!-- Dynamic Elements -->
+    <section id="dynamic-elements">
+      <h2>Dynamic Elements (JavaScript)</h2>
+      <p>
+        JavaScript will be used to make the site feel interactive, responsive,
+        and more helpful than a simple static brochure site. Planned dynamic
+        features include:
+      </p>
+      <ul>
+        <li>
+          <strong>Interactive Hat Gallery:</strong> Filter hats by color, theme
+          (e.g., “cheerful”, “calm”, “sporty”), or size using buttons or
+          dropdowns. JS will show/hide hat cards based on the selected filters.
+        </li>
+        <li>
+          <strong>Donation Impact Calculator:</strong> A small form where users
+          can enter a dollar amount or number of hats. JavaScript will calculate
+          and display how many patients could be helped and show a friendly
+          message (e.g., “Your donation could comfort 5 patients this month!”).
+        </li>
+        <li>
+          <strong>Testimonial / Story Slider:</strong> A rotating carousel of
+          patient or volunteer quotes that automatically slides every few
+          seconds, with “previous/next” buttons controlled by JS.
+        </li>
+        <li>
+          <strong>Theme Toggle (Optional Stretch):</strong> A light/dark mode
+          toggle that lets users switch the color theme. JavaScript will apply
+          different CSS classes and remember the choice with <code>localStorage</code>.
+        </li>
+        <li>
+          <strong>Form Validation:</strong> Basic JavaScript validation for the
+          contact / request form (required fields, email pattern, character
+          limits) to improve user experience.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Logo -->
+    <section id="branding">
+      <h2>Logo</h2>
+      <p>
+        The logo will be simple, warm, and friendly. It will likely include a
+        stylized soft hat icon combined with a small heart or ribbon to
+        represent care and support for patients.
+      </p>
+      <p>
+        Once your logo file is ready (for example, created in Canva or Adobe
+        Logo Maker), save it in an <code>images</code> folder inside
+        <code>softhats</code> and update the image path below.
+      </p>
+      <figure class="logo-figure">
+        <!-- Replace src with your actual logo file path -->
+        <img src="images/softhats-logo.png" alt="Soft Hats for Patients logo" />
+        <figcaption>Draft logo for Soft Hats for Patients.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Colors & Fonts -->
+    <section id="style-guide">
+      <h2>Style Guide</h2>
+
+      <h3>Color Palette</h3>
+      <p>
+        The color scheme should feel soft, calm, and hopeful. The planned
+        palette is:
+      </p>
+      <ul>
+        <li><strong>Primary:</strong> Soft teal – <code>#4FB3BF</code></li>
+        <li><strong>Accent:</strong> Warm coral – <code>#F76C6C</code></li>
+        <li><strong>Background:</strong> Soft cream – <code>#FFF7EC</code></li>
+        <li><strong>Dark Text / Headings:</strong> Slate – <code>#1F2933</code></li>
+        <li><strong>Muted Gray:</strong> Light gray – <code>#E5E7EB</code></li>
+      </ul>
+
+      <div class="color-samples">
+        <div class="color-swatch primary">Primary</div>
+        <div class="color-swatch accent">Accent</div>
+        <div class="color-swatch background">Background</div>
+        <div class="color-swatch dark">Dark Text</div>
+        <div class="color-swatch gray">Muted Gray</div>
+      </div>
+
+      <h3>Typography</h3>
+      <p>
+        Headings and key titles will use a friendly, modern sans-serif font
+        such as <strong>Poppins</strong> or <strong>Quicksand</strong>. Body
+        text will use a clean, highly readable font such as
+        <strong>Open Sans</strong> or <strong>Roboto</strong> with fallbacks to
+        standard system fonts.
+      </p>
+      <ul>
+        <li><strong>Headings:</strong> “Poppins”, system sans-serif</li>
+        <li><strong>Body:</strong> “Open Sans”, system sans-serif</li>
+      </ul>
+      <p>
+        In the final project, Google Fonts will be included in the
+        <code>&lt;head&gt;</code> of the HTML pages.
+      </p>
+    </section>
+
+    <!-- Content -->
+    <section id="content">
+      <h2>Content Outline</h2>
+      <p>
+        Below is the planned content for each page of the Soft Hats for
+        Patients site. Text can be refined later, but this provides a clear idea
+        of what will appear where.
+      </p>
+
+      <h3>Home Page</h3>
+      <ul>
+        <li>
+          <strong>Hero section:</strong> Short headline, one-sentence mission
+          statement, and a call-to-action button (“See the Hats” or “Get
+          Involved”).
+        </li>
+        <li>
+          <strong>Quick explanation:</strong> 2–3 short sentences explaining
+          why soft hats matter to patients and how this project started.
+        </li>
+        <li>
+          <strong>Highlight cards:</strong> Three small sections such as
+          “Comfort”, “Confidence”, and “Connection”, each with a brief
+          description.
+        </li>
+        <li>
+          <strong>Preview of hat gallery:</strong> A small set of featured hats
+          with images and one-line descriptions.
+        </li>
+        <li>
+          <strong>Testimonial slider:</strong> Rotating quotes from patients,
+          family members, or volunteers.
+        </li>
+      </ul>
+
+      <h3>Hat Gallery Page</h3>
+      <ul>
+        <li>
+          <strong>Filters:</strong> Buttons or dropdowns for color, size, or
+          theme (e.g., “Bright & Cheerful”, “Soft & Calm”).
+        </li>
+        <li>
+          <strong>Hat cards:</strong> Each card includes a photo, hat name,
+          short description, and tag(s).
+        </li>
+        <li>
+          <strong>Favorites (optional):</strong> A “heart” or “save” icon to
+          mark favorite hats (stored locally in the browser).
+        </li>
+      </ul>
+
+      <h3>Get Involved Page</h3>
+      <ul>
+        <li>
+          <strong>Donation Impact Calculator:</strong> A form where users can
+          type an amount or number of hats and see the estimated number of
+          patients helped.
+        </li>
+        <li>
+          <strong>Ways to Help:</strong> Cards or list items describing donating
+          materials, sewing hats, delivering hats, or sharing the project on
+          social media.
+        </li>
+        <li>
+          <strong>Contact / Request Form:</strong> Fields for name, email, role
+          (patient, family, volunteer, donor), and a message.
+        </li>
+      </ul>
+
+      <h3>About / Our Story Page (Optional)</h3>
+      <ul>
+        <li>
+          <strong>Origin Story:</strong> How the idea for Soft Hats for
+          Patients started and why it matters.
+        </li>
+        <li>
+          <strong>Mission & Values:</strong> Short bullet points on dignity,
+          comfort, and kindness.
+        </li>
+        <li>
+          <strong>Photos:</strong> A few warm, respectful images showing hats,
+          materials, or (if available and appropriate) patients/volunteers.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Wireframes -->
+    <section id="wireframes">
+      <h2>Wireframes</h2>
+      <p>
+        These wireframes are simple, black-and-white layouts that show the main
+        structure of each page. They help plan where content, images, and
+        interactive elements will go before building the actual site.
+      </p>
+
+      <h3>Home Page Wireframe</h3>
+      <p>
+        The home page includes: hero section at the top, three feature cards
+        underneath, a preview of the hat gallery, and a testimonial slider near
+        the bottom.
+      </p>
+      <figure class="wireframe-figure">
+        <!-- Replace with your actual file path once created -->
+        <img src="wireframes/home-wireframe.png" alt="Wireframe of Soft Hats for Patients home page layout" />
+        <figcaption>Home page wireframe.</figcaption>
+      </figure>
+
+      <h3>Hat Gallery Page Wireframe (Child Page)</h3>
+      <p>
+        The gallery page includes: filter options at the top, a responsive grid
+        of hat cards in the middle, and an optional “favorites” section or
+        summary near the bottom.
+      </p>
+      <figure class="wireframe-figure">
+        <!-- Replace with your actual file path once created -->
+        <img src="wireframes/gallery-wireframe.png" alt="Wireframe of Soft Hats for Patients hat gallery page layout" />
+        <figcaption>Hat gallery child page wireframe.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Soft Hats for Patients | Site Plan</p>
+  </footer>
+
+  <script>
+    // Simple script to keep the year current on the site plan page
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
