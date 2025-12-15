@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warrior Lizard - Character Card</title>
+    
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Warrior Lizard - Character Card">
+    <meta property="og:description" content="An interactive character card featuring a mighty warrior lizard with attack and level up mechanics">
+    <meta property="og:url" content="https://charactercard.example.com">
+    <meta property="og:image" content="https://example.com/warrior-lizard-preview.png">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Warrior Lizard - Character Card">
+    <meta name="twitter:description" content="An interactive character card featuring a mighty warrior lizard with attack and level up mechanics">
+    <meta name="twitter:image" content="https://example.com/warrior-lizard-preview.png">
+
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
+    
+   
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="character-card">
+            <div class="card-header">
+                <h1 id="characterName">Warrior Lizard</h1>
+                <div class="level-badge" id="levelBadge">Level 1</div>
+            </div>
+
+            <div class="character-image">
+                <img src="warrior-lizard.jpg" alt="Warrior Lizard" id="characterImg">
+                <div class="status-overlay" id="statusOverlay"></div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-row">
+                    <span class="stat-label">Class:</span>
+                    <span class="stat-value" id="characterClass">Warrior</span>
+                </div>
+                
+                <div class="stat-row">
+                    <span class="stat-label">Level:</span>
+                    <span class="stat-value" id="characterLevel">1</span>
+                </div>
+
+                <div class="health-bar-container">
+                    <div class="health-label">
+                        <span>Health:</span>
+                        <span id="healthText">100 / 100</span>
+                    </div>
+                    <div class="health-bar">
+                        <div class="health-fill" id="healthFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-damage" id="attackBtn" onclick="character.attacked()">
+                    ⚔️ Take Damage
+                </button>
+                <button class="btn btn-levelup" id="levelUpBtn" onclick="character.levelUp()">
+                    ⭐ Level Up
+                </button>
+            </div>
+
+            <div class="message-box" id="messageBox"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
