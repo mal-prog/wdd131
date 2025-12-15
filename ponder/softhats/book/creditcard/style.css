@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.credit-card {
+    background: linear-gradient(135deg, #d4d4d8 0%, #a1a1aa 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 15px;
+    position: relative;
+    min-height: 240px;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #71717a 0%, #52525b 100%);
+}
+
+.total-amount {
+    font-size: 14px;
+    color: #27272a;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-icon {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+}
+
+.magnetic-strip {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 45px;
+    background: #18181b;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 11px;
+    color: #27272a;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #a1a1aa;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.expiration-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: end;
+}
+
+.expiration-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    grid-column: span 2;
+}
+
+.expiration-inputs input {
+    padding: 10px;
+    border: 1px solid #a1a1aa;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+}
+
+.cvv-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cvv-group input {
+    padding: 10px;
+    border: 1px solid #a1a1aa;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+}
+
+.submit-btn {
+    background: white;
+    color: #27272a;
+    border: 2px solid #a1a1aa;
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    justify-self: center;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.error {
+    border-color: #ef4444 !important;
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    background: #10b981;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+    animation: slideIn 0.5s ease;
+}
+
+.success-message.show {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-cvv-section {
+    margin-top: 60px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80px;
+    position: absolute;
+    right: 25px;
+    top: 110px;
+}
+
+.back-cvv-label {
+    font-size: 10px;
+    color: #52525b;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.back-cvv-value {
+    font-size: 14px;
+    color: #18181b;
+    letter-spacing: 2px;
+}

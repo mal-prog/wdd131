@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prove - Credit Card Form</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💳</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="success-message" id="successMessage">
+            ✓ Payment Successful! Your transaction has been processed.
+        </div>
+
+        <form id="creditCardForm">
+            <!-- Front of Card -->
+            <div class="credit-card">
+                <div class="card-icon">💳</div>
+                <div class="total-amount">TOTAL: $199</div>
+                
+                <div class="form-group">
+                    <label for="cardNumber">CARD NUMBER</label>
+                    <input 
+                        type="text" 
+                        id="cardNumber" 
+                        name="cardNumber" 
+                        placeholder="1234 5678 9101 1020"
+                        maxlength="19"
+                        required
+                    >
+                    <span class="error-message" id="cardNumberError">Invalid card number. Must be 1234123412341234</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardHolder">CARD HOLDER</label>
+                    <input 
+                        type="text" 
+                        id="cardHolder" 
+                        name="cardHolder" 
+                        placeholder="John Doe"
+                        required
+                    >
+                    <span class="error-message" id="cardHolderError">Card holder name is required</span>
+                </div>
+
+                <div class="expiration-group">
+                    <div class="expiration-inputs">
+                        <div>
+                            <label for="expMonth" style="font-size: 11px; color: #27272a; font-weight: bold;">EXPIRATION</label>
+                            <input 
+                                type="text" 
+                                id="expMonth" 
+                                name="expMonth" 
+                                placeholder="MM"
+                                maxlength="2"
+                                aria-labelledby="expirationDate"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <label for="expYear" style="font-size: 11px; color: transparent;">YY</label>
+                            <input 
+                                type="text" 
+                                id="expYear" 
+                                name="expYear" 
+                                placeholder="YY"
+                                maxlength="2"
+                                aria-labelledby="expirationDate"
+                                required
+                            >
+                        </div>
+                    </div>
+                    <div class="cvv-group">
+                        <label for="cvv">CVC/CVV</label>
+                        <input 
+                            type="text" 
+                            id="cvv" 
+                            name="cvv" 
+                            placeholder="XXX"
+                            maxlength="3"
+                            required
+                        >
+                    </div>
+                </div>
+                <span class="error-message" id="expirationError">Card is expired or invalid date</span>
+                <span class="error-message" id="cvvError">CVV must be 3 digits</span>
+            </div>
+
+            <!-- Back of Card -->
+            <div class="credit-card card-back">
+                <div class="magnetic-strip"></div>
+                <div class="back-cvv-section">
+                    <div class="back-cvv-label">CVC/CVV</div>
+                    <div class="back-cvv-value" id="cvvDisplay">XXX</div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
